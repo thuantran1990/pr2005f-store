@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails6 AdminLTE 2.4</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini">
+
+      <div class="wrapper">
+        <%= render "layouts/admin/header" %>
+        <%= render "layouts/admin/sidebar" %>
+        <%= yield %>         
+        <%= render "layouts/admin/footer" %>
+        <%= render "layouts/admin/control_sidebar" %>
+      <div>
+  </body>
+</html>
