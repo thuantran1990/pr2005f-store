@@ -18,6 +18,7 @@ require('admin-lte')
 //= require main
 //= require price-range
 //= require_tree
+
 import 'bootstrap';
 import "admin-lte/dist/css/AdminLTE.css";
 import "admin-lte/dist/css/skins/_all-skins.css";
@@ -33,6 +34,9 @@ document.addEventListener("turbolinks:load", () => {
 
 
 
+
+
+//= require login
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,0 +1,35 @@
+ <% unless user_signed_in? %>
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <form class="new_user" id="new_user" action="/login" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="SeMl9v40I+wJ1C0WlCfTcYJXgIqsFoNC/mSPo7+iHzCOPKC0MgoW6OVtFUDPXRkwaE669I1ncq8oJR/nzUZ2ZA==">
+                    <label for="user_email">Email</label>
+                    <input class="form-control" type="email" value="" name="user[email]" id="user_email">
+                    <label for="user_password">Password</label>
+                    <input class="form-control" type="password" name="user[password]" id="user_password">
+                    <label class="checkbox inline" for="user_remember_me">
+                    <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+                      <span>Remember me on this computer</span>
+                    </label><input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in">
+                  </form>
+                    <a href="/resgistration">Sign up</a><br>
+                    <a href="/password/new">Forgot your password?</a><br>
+                    <a class="btn btn-info" href="/auth/facebook">Facebook</a><br>
+
+                </div>
+                <div class="modal-body mx-3">
+                
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+              <button class="btn btn-default">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %> 
