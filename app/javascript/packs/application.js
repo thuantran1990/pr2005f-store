@@ -20,6 +20,7 @@ require('admin-lte')
 //= require price-range
 //= require_tree
 
+
 import 'bootstrap';
 import "admin-lte/dist/css/AdminLTE.css";
 import "admin-lte/dist/css/skins/_all-skins.css";
@@ -28,6 +29,7 @@ import 'bootstrap/dist/css/bootstrap-theme';
 import '../stylesheets/application';
 import "font-awesome/css/font-awesome.css";
 import 'cocoon-js'
+import 'packs/comment.js'
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

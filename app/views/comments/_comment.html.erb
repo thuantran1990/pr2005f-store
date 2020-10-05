@@ -1,0 +1,66 @@
+<div class = "margin50px" id = "append-comment-<%=comment.id %>" data-id = "<%= comment.id %>">
+	
+		
+
+	<p>
+		<span style= "width:30px;">
+			<%= gravatar_for comment.user %>
+		</span>
+		<%= link_to (comment.user.fullname || comment.user.email), user_path(comment.user) %>	
+	</p>
+	<p id = "comment-content">	
+		<%= comment.content %>	 
+	</p>
+	<b id = "count-subcomment<%= comment.id %>">	
+ 		replay(<%= comment.sub_comments.count %>),
+		from(<%= time_ago_in_words(comment.created_at) %>) --> 
+	</b>	
+ 	
+  <% if user_signed_in? %>
+   <% if current_user.current_user?(comment.user) %>
+	   <span class = "delete-comment" data-id = "<%= comment.id %>">
+	    <%= link_to  product_comment_path(comment.product, comment),
+	          method: :delete,
+	          data: {alert: "are you sure?"}, id: "delete-comment#{comment.id}", remote:true do %><i class='fas fa-trash-alt' style='font-size:15px;color:red'></i><% end %>
+	   </span> 
+	   <span class = "edit-comment" data-id = "<%= comment.id %>">
+	   	<%= link_to  '#', id: "edit#{comment.id}", remote: true do %><i class="fa fa-edit" style="font-size:15px;color:#52FF33"></i><% end %>
+	   </span>
+	
+    <% end %> 
+    <% if comment.parent_id.nil? %>     
+    <span class = "subcomment" data-id = "<%=comment.id%>">     
+   		<%= link_to  '#',id: "subcomment#{comment.id}", remote: true do %><i class="fa fa-reply" style="font-size:15px;color:ruby"></i><% end %>
+   	</span>	
+   	<span id = "comment-subcomment-form<%=comment.id %>" style = "display: none;" >
+   	
+		<input value="<%= comment.id %>" type="hidden" name="sub_comment[comment_id]" id="sub_comment_comment_id<%= comment.id %>">
+		<input class="form-control" type="text" name="sub_comment[content]" id="sub_comment_content<%= comment.id %>">
+		<span class = "sub-comment" data-id = "<%=comment.id%>">	
+			<input type="button" name="commit" value="reply" class="btn btn-success "  id= "sub-comment<%=comment.id %>"  >
+		</span>
+		
+   	</span>
+   	<div id = "comment-<%= comment.id %>" style = "margin-left: 50px;">
+   		<%= render comment.sub_comments %>
+   	</div>	
+   <% end %>
+
+	<% end %>
+	   <span id = "edit-form<%= comment.id %>" style = "display: none">  
+          <input value="<%= comment.product.present? ? comment.product.id : product.id  %>" type="hidden" name="comment[product_id]" id = "comment_product_id<%=comment.id %>" >
+          <input placeholder="comment" required="required" class="form-control add-comment" data-id = "<%= comment.id %>" id = "comment_content<%=comment.id %>" type="text" name="comment[content]" >
+	      <br>
+	      <br>
+        <center >
+        	<span class = update-comment data-id = "<%=comment.id %>">
+        		<input type="button" name="commit" value="comment" class="btn btn-success "  id = "update-comment<%= comment.id %>">
+        	</span>
+      </center> 
+	   </span>
+	
+</div>
+
+
+
+					

@@ -1,6 +1,7 @@
 vi:
   pages:
     index:
+
       Cart: Gior hàng 
       Login: Đăng nhập 
       Account: Tài khoản 
@@ -26,4 +27,16 @@ vi:
       size: KÍch thước 
       price: Giá 
       Update product: Cập nhật sản phẩm  
-      
+
+      Cart: Gio hang
+      Login: Dang nhap
+      Account: Tai khoan
+      English: Tieng anh
+      Vietnamese: Tieng viet
+      KIDS: Trẻ Em
+      WOMENS: PHỤ NỮ
+      MENS: ĐÀN ÔNG
+products:
+    show:
+        Condition: Tình trạng    
+
