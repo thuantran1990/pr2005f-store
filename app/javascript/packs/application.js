@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 require('admin-lte')
 
-
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
@@ -20,7 +19,9 @@ require('admin-lte')
 //= require price-range
 //= require_tree
 
-
+import 'packs/addproducttocart.js';
+import 'packs/cart.js';
+import 'packs/comment.js';
 import 'bootstrap';
 import "admin-lte/dist/css/AdminLTE.css";
 import "admin-lte/dist/css/skins/_all-skins.css";
@@ -28,8 +29,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme';
 import '../stylesheets/application';
 import "font-awesome/css/font-awesome.css";
-import 'cocoon-js'
-import 'packs/comment.js'
+import 'cocoon-js';
+
+
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.new
 	end	
 	def create
-
+		
 		@comment = current_user.comments.build(
 											product_id: params[:product_id], 
 											parent_id: params[:parent_id], 
