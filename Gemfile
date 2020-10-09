@@ -66,3 +66,6 @@ gem "coffee-rails"
 
 gem 'rails-i18n'
 
+gem "cocoon"
+gem 'jquery-ui-rails'
+

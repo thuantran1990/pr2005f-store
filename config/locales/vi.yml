@@ -1,8 +1,29 @@
 vi:
   pages:
     index:
-      Cart: Gio hang
-      Login: Dang nhap
-      Account: Tai khoan
-      English: Tieng anh
-      Vietnamese: Tieng viet
+      Cart: Gior hàng 
+      Login: Đăng nhập 
+      Account: Tài khoản 
+      English: Tiếng anh 
+      Vietnamese: Tiếng việt 
+      Dashboard: Bảng điều kiển
+      Products: Quản lý sản phẩm 
+      Search...: Tìm kiếm...
+      All products: Tất cả sản phẩm 
+      Create product: Tạo mới sản phẩm 
+      Search: Tìm kiếm 
+      Image : Ảnh 
+      Product name: Tên sản phẩm  
+      Update date: ngày cập nhật 
+      Create date: ngày tạo 
+      catalogue: Chỉ mục 
+      Product details: Chi tiết sản phẩm 
+      View: Xem 
+      edit: Sửa 
+      classify: Phân loại 
+      product type: Phân loại 
+      color: màu sắc 
+      size: KÍch thước 
+      price: Giá 
+      Update product: Cập nhật sản phẩm  
+      

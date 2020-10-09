@@ -1,0 +1,26 @@
+<div class="nested-fields">
+	<div class="col-md-9" style="margin-top: 40px;">
+	  <div class="form-group">
+	    <%= f.label :color, "color" %>
+	    <%= f.text_field :color, class: 'form-control', placeholder:"Enter color" %>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.label :size, "size" %>
+	    <div class="classify-list">
+	      <div><%= f.select :size, options_for_select(Product.sizes)%></div>
+	    </div>
+	  </div>
+
+	  <div class="form-group">
+	    <%= f.label :price, "price" %>
+	    <%= f.text_field :price, class: 'form-control', placeholder:"Enter price" %>
+	  </div>
+	  
+	   <%= link_to_remove_association  "", f, class: 'btn btn-default btn-xs fa fa-trash' %>
+
+	</div>
+</div>
+
+
+
