@@ -1,0 +1,47 @@
+<%= form_for [:admin, @product] do |f| %>
+  <div class="box-body">
+    <div class="form-group">
+      <%= f.label :name, "Product name" %>
+      <%= f.text_field :name, class: 'form-control', placeholder:"Enter product name" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :classify, "classify" %>
+      <div class=":classify-list">
+        <div><%= f.select :classify, options_for_select(Product.classifies)%></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :product_type, "product type" %>
+      <div class="classify-list">
+        <div><%= f.select :product_type, options_for_select(Product.product_types)%></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="image">
+        <%= f.file_field :image,  multiple: true %>
+      </span>
+    </div>
+
+    <div id ="product-details">
+      <label>Product details</label>
+      <%= f.fields_for :product_details do |product_detail| %>                  
+        <%= render 'product_detail_fields', f: product_detail %>
+      <% end %>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class ="links">             
+    <%= link_to_add_association 'Add', f, :product_details,
+    data: {
+      association_insertion_node: '#product-details',  
+      association_insertion_method: :append 
+    }, class:"btn btn-success", style: "margin-left: 25px;" %> 
+  </div>
+
+  <div class="box-footer">
+    <%= f.submit %>
+  </div>
+<% end %>

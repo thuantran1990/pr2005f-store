@@ -1,0 +1,78 @@
+<div class="content-wrapper" style="min-height: 926px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        
+        <small>preview of simple tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li class="active">Index</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Responsive Hover Table</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tbody><tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Product name</th>
+                  <th>Catalogue</th>
+                  <th>Price (VND)</th>
+                  <th>Update date</th>
+                  <th>Create date</th>
+                  <th>Product details</th>
+                  <th>Edit</th>
+                </tr>
+
+                <% @products.each do |product| %>
+                <% product_detail_prices = product.product_details.map{ |product_detail| product_detail.price }.uniq%>
+
+                  <tr>
+                    <th><%=product.id%></th>
+                    <th class = "index-img"><%=image_tag product.image.first if product.image.attached? %></th>
+                    <th><%=product.name%></th>
+                    <td><%=product.classify%>,<%=product.product_type%></td>
+                    <% if product_detail_prices.length == 1%>
+                      <th><%= product_detail_prices.first%></th>
+                    <% else %>
+                      <th><%=product_detail_prices.min%> - <%=product_detail_prices.max%></th>
+                    <%end%>
+                    <td><%=product.updated_at%></td>
+                    <td><%=product.created_at%></td>
+                    <td><a href="<%= admin_product_product_details_path(product.id)%>" class="label label-success">View</a></td>
+                    <td><a href="<%= edit_admin_product_path(product.id)%>"><i class="fa fa-pencil"></i></a></td>
+                  </tr>
+                <% end %>
+
+
+              </tbody></table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
