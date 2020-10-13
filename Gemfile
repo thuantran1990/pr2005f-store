@@ -63,8 +63,12 @@ gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "uglifier"
 gem "coffee-rails"
-
 gem 'rails-i18n'
+gem 'active_storage_validations'
+gem 'carrierwave'
+gem 'closure_tree'
+gem 'kaminari'
+
 
 gem "cocoon"
 gem 'jquery-ui-rails'

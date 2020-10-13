@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|vi/ do
-      root 'pages#index'
-  end
+
+
   devise_for :users,
           path: '',
           path_names: {sign_in: 'login' ,sign_out: 'logout' ,edit: 'profile',sign_up: 'resgistration'},
@@ -13,6 +12,18 @@ Rails.application.routes.draw do
       delete "signout" => "devise/sessions#destroy"
   end
     resources :users
+
+   resources :comments do
+      resources :sub_comments 
+     end 
+ 	
+ 
+    scope "(:locale)", locale: /en|vi/ do
+    	root 'pages#index'
+      resources :products do 
+        resources :comments 
+      end
+	end
 
   namespace :admin do
       get 'static_pages/home'

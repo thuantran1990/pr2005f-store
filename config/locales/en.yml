@@ -60,4 +60,10 @@ en:
       size: size
       price: price
       Update product: Update product 
+      KIDS: KIDS
+      WOMENS: WOMENS
+      MENS: MENS
+  products:
+    show:
+      Condition: Condition
 
