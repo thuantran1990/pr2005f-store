@@ -33,6 +33,25 @@ ActiveRecord::Schema.define(version: 2020_10_12_084813) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "add_content_to_carts", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_detail_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "content"
+  end
+
   create_table "comment_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id", null: false
     t.integer "descendant_id", null: false
@@ -54,12 +73,9 @@ ActiveRecord::Schema.define(version: 2020_10_12_084813) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "quality"
-    t.integer "order_id", null: false
-    t.integer "product_id", null: false
+    t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -133,8 +149,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_084813) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
-  add_foreign_key "order_details", "orders"
-  add_foreign_key "order_details", "products"
   add_foreign_key "product_details", "products"
   add_foreign_key "sub_comments", "comments"
   add_foreign_key "sub_comments", "users"

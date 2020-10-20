@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+
 	has_many :order_details
 
 	has_many :product_details,dependent: :destroy
@@ -14,6 +15,11 @@ class Product < ApplicationRecord
 	enum product_type: {"Áo khoác"=> 0, "Áo blazer"=> 1, "Áo sơ mi"=> 2, "Áo kiểu"=> 3,"Áo phông"=> 4,"Áo nỉ chui đầu"=> 5,
 	                    "Áo pholo"=> 6, "Áo len"=> 7, "Hàng dệt kim"=> 8,"Quần âu "=> 9,"Quần bò"=> 10,"Chân váy"=> 11,
 	                    "Denim"=> 12,"Quần Short"=> 13,"Bộ com lê"=> 14,"Trang phục đồng bộ"=> 15,"Đầm | Jumpsuit"=> 16 }
+
+
+	
+	has_many :product_details
+	
 
 	
 end

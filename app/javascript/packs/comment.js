@@ -1,34 +1,31 @@
 
-		var url = window.location.pathname;
-        var product_id = url.substring(url.lastIndexOf('/') + 1);
-  $(document).on('click', '.post-comment', function() {
-  
-      
-        var comment_id = $(this).data('id');
-    
-        $.ajax({
-          url: '/products/'+ product_id + '/comments',
-          type: 'POST',
-          dataType: 'json',
-          data: {
-          	authenticity_token: $('[name="csrf-token"]')[0].content,
-            parent_id: $('.comment_parent_id').val(),
-            product_id: $('.comment_product_id').val(),
-            content: $('.comment_content').val()
-         
-          },
-          success: function(data){
-          	
-            $('#append-comment').prepend(data.data_comment)
-            $('#count-comment').replaceWith('('+data.count_comment+')')
-            $('.comment_content').val("")
-          },
-          fail: function (){
-		    alert( "error" );
-			}			
-        });
-     
-    });
+var url = window.location.pathname;
+var product_id = url.substring(url.lastIndexOf('/') + 1);
+$(document).on('click', '.post-comment', function() {
+	var comment_id = $(this).data('id');
+
+	$.ajax({
+	  url: '/products/'+ product_id + '/comments',
+	  type: 'POST',
+	  dataType: 'json',
+	  data: {
+	  	authenticity_token: $('[name="csrf-token"]')[0].content,
+	    parent_id: $('.comment_parent_id').val(),
+	    product_id: $('.comment_product_id').val(),
+	    content: $('.comment_content').val()
+	 
+	  },
+	  success: function(data){
+	  	
+	    $('#append-comment').prepend(data.data_comment)
+	    $('#count-comment').replaceWith('('+data.count_comment+')')
+	    $('.comment_content').val("")
+	  },
+	  fail: function (){
+	    alert( "error" );
+		}			
+	});
+});
 
 
 		$(document).ready(function(){

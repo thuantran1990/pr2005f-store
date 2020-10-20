@@ -36,7 +36,8 @@ vi:
       KIDS: Trẻ Em
       WOMENS: PHỤ NỮ
       MENS: ĐÀN ÔNG
-products:
+  products:
     show:
-        Condition: Tình trạng    
-
+      Condition: Tình trạng    
+      
+      
