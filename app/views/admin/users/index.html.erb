@@ -7,7 +7,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="#">Users</a></li>
         <li class="active">Index</li>
       </ol>
     </section>
@@ -18,7 +18,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+              <h3 class="box-title">User management</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
@@ -35,36 +35,22 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Image</th>
-                  <th>Product name</th>
-                  <th>Catalogue</th>
-                  <th>Price (VND)</th>
+                  <th>Name</th>
+                  <th>Email</th>
                   <th>Update date</th>
                   <th>Create date</th>
-                  <th>Product details</th>
                   <th>Edit</th>
                 </tr>
 
-                <% @products.each do |product| %>
-                <% product_detail_prices = product.product_details.map{ |product_detail| product_detail.price }.uniq%>
-
+                <% @users.each do |user| %>
                   <tr>
-                    <th><%=product.id%></th>
-                    <th class = "index-img"><%=image_tag product.image.first if product.image.attached? %></th>
-                    <th><%=product.name%></th>
-                    <td><%=product.classify%>,<%=product.product_type%></td>
-                    <% if product_detail_prices.length == 1%>
-                      <th><%= product_detail_prices.first%></th>
-                    <% else %>
-                      <th><%=product_detail_prices.min%> - <%=product_detail_prices.max%></th>
-                    <%end%>
-                    <td><%=product.updated_at%></td>
-                    <td><%=product.created_at%></td>
+                    <th><%=user.id%></th>
+                    <th><%=user.fullname%></th>
+                    <td><%=user.email %></td>
+                    <td><%=user.updated_at%></td>
+                    <td><%=user.created_at%></td>
                     <td>
-                      <%= link_to 'View',  admin_product_path(product), class: "label label-success"  %>
-                   </td>
-                    <td>
-                      <%= link_to edit_admin_product_path(product.id) do  %>
+                      <%= link_to user_path(user) do  %>
                         <i class="fa fa-pencil"></i>
                       <% end %>
                     </td>
