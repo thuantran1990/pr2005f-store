@@ -43,9 +43,9 @@ vi:
       winter: đồ mùa đông  
       Hot_products: Sản phẩm bán chạy nhất
       category: thể loại
-      recommended_items: đề xuất
-
+      recommended_items: sản phẩm giảm giá
       logout: Đăng xuất
+      Add_to_cart: Thêm vào giỏ hàng
 
   products:
     show:
@@ -115,7 +115,12 @@ vi:
         edit: chỉnh sửa 
         not_found: not found  
       update:
-        Product_updated: sản phẩm đã được thay đổi  
+        Product_updated: sản phẩm đã được thay đổi
+    product_details:
+      edit:
+        discount: giảm giá 
+        Price: Giá  
+        Color: Màu sắc
     orders:
       index:
         buyer: "Người mua"
@@ -255,6 +260,9 @@ vi:
     alert:
       login: "Yêu cầu đăng nhập" 
       cart: "Thêm vào giỏ hàng thành công"  
-      delete: "Xóa thành công"     
+      delete: "Xóa thành công" 
+  product_details:
+    show:
+      Add_to_cart: Thêm vào giỏ hàng 
 
 

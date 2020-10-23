@@ -6,4 +6,8 @@ class ProductDetailsController < ApplicationController
 			data_color: @sizes =  @product_details.pluck(:size).uniq
 		},status: :ok
 	end	
+	def show
+		@product = Product.find_by id: params[:product_id]
+		@product_detail = ProductDetail.find_by id: params[:id]
+	end	
 end

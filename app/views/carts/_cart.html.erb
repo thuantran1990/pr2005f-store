@@ -11,7 +11,19 @@
 					<p >ID<%= "#{key}" %></p>
 				</td>
 				<td class="cart_price" >
-					<p id ="unit-price-<%= @product_detail.id %>" ><%= @product_detail.price %></p>
+					<% if @product_detail.discount.nil?  %>
+						<p id ="unit-price-<%= @product_detail.id %>" >
+							<%= @product_detail.price %>		
+							
+						</p>
+					<% else %>
+						<span style = "text-decoration: line-through;">
+							<%= @product_detail.price %>	
+						</span>
+						<span id ="unit-price-<%= @product_detail.id %>" >
+							<%= @product_detail.discount_price %>	
+						</span>
+					<% end %>
 				</td>
 
 				<td class="price">
@@ -30,7 +42,11 @@
 					</div>
 				</td>
 				<td class="cart_total">
-					<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
+					<% if @product_detail.discount.nil?  %>
+						<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
+					<% else %>
+						<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
+					<% end  %>				
 				</td>
 				<td class="cart_delete-<%= @product_detail.id %>">
 					<button class="delete-product" data-id = "<%= @product_detail.id %>">X</button>

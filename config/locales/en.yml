@@ -72,8 +72,9 @@ en:
       winter: winter
       Hot_products: Hot products
       category: category
-      recommended_items: recommended items
+      recommended_items:  discount product
       logout: logout
+      Add_to_cart: Add to cart
   products:
     show:
       Condition: Condition
@@ -145,6 +146,11 @@ en:
         Create_date: Created at         
         edit: edit
         not_found: not found 
+    product_details:
+      edit:
+        discount: discount  
+        Price: Price
+        Color: Color  
     orders:
       index:
         buyer: "Buyer"
@@ -284,3 +290,6 @@ en:
       login: "Please login!" 
       cart: "Add to cart successfully"   
       delete: " was delete "
+  product_details:
+    show:
+      Add_to_cart: Add to cart
