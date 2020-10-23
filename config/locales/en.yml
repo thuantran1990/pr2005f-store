@@ -83,39 +83,6 @@ en:
       notice: "Do not find product"
     updated:
       Product_updated: Product updated      
-
-
-  admin:
-    static_pages:
-      home:
-        Admin_pages: Admin Pages
-        
-  admin: 
-    product_details_controller:
-      update:
-        not_updated: not updated        
-
-    
-
-  admin:
-    static_pages:
-      home:
-        Admin_pages: Admin Pages
-  admin: 
-    product_details_controller:
-      update:
-        not_updated: not updated 
-        not_found: not found 
-  admin:
-    products:
-      show: 
-        Color: Color
-        Size: Size        
-        Price: Price        
-        Update_date: Update at          
-        Create_date: Created at         
-        edit: edit
-        not_found: not found 
   devise:
     sessions:
       new:
@@ -135,15 +102,114 @@ en:
     View: "View All Products" 
     Users: Users 
     All_products: All products  
-    Create product: Create product      
+    Create product: Create product  
 
-
-            
-
-
-
-
-
-
-          
-
+  admin:
+    static_pages:
+      home:
+        Admin_pages: Admin Pages 
+    product_details_controller:
+      update:
+        not_updated: not updated        
+    static_pages:
+      home:
+        Admin_pages: Admin Pages
+    product_details_controller:
+      update:
+        not_updated: not updated 
+        not_found: not found 
+    products:
+      show: 
+        Color: Color
+        Size: Size        
+        Price: Price        
+        Update_date: Update at          
+        Create_date: Created at         
+        edit: edit
+        not_found: not found     
+    layouts:
+      satatic_pages:
+        home:
+          Admin_pages: Admin Pages
+    product_details_controller:
+      update:
+        not_updated: not updated 
+        not_found: not found 
+    products:
+      show: 
+        Color: Color
+        Size: Size        
+        Price: Price        
+        Update_date: Update at          
+        Create_date: Created at         
+        edit: edit
+        not_found: not found 
+    orders:
+      index:
+        buyer: "Buyer"
+        products: "Products"
+        price: "Total price (VND)"
+        order status: "Order status" 
+        update_at: "Update at"
+        create_at: "Create at" 
+        home: "Home"
+        orders: "Order"
+        all_orders: "All order"
+        filter: "Filter"
+        order: "Order"
+        order1: "Order"
+        newest: "Newest"
+        oldest: "Oldest"
+        phone_number: "Phone number"
+        address: "Address"
+        quantity: "Quantity"
+        order_id: "Order Id "
+        created_by: "Created by"
+        shipping_info: "Shipping info"
+        purchased: "Purchased"
+        view: "View"
+        recipient's_name: "Recipient's Name"
+        items: "Items"
+        all_orders: "All orders"
+        order_status0: "Awaiting check"
+        order_status1: "Canceled by seller"
+        order_status2: "Accepted"
+        order_status3: "Processing"
+        order_status4: "Shipping"
+        order_status5: "Delivered"
+        order_status6: "Refunded"
+        order_status7: "Canceled by buyer"
+        update_message: "Update the status of these orders"
+      show:
+        home: "Home"
+        orders: "Order"
+        order: "Order"
+        order_detail: "Order detail"
+        bill_details: "Bill details"
+        total_price: "Total price"
+        shipping: "Shipping"
+        bill_value: "Bill value"
+        payment_information: "Payment information"
+        cash_on_delivery: "Cash on delivery"
+        shipping_address: "Shipping address"
+        recipient's_name: "Recipient's name"
+        phone_number: "Phone number"
+        address: "Address"
+        all_items: "All items"
+        product: "Product"
+        item's_retail_price: "Item's retail price"
+        quantity: "Quantity"
+        total: "Total"
+  number:
+    currency:
+      format:
+        format: "%n%u" # %u = unit, %n = number
+        unit: " VND"
+        delimiter: ','
+        precision: 0
+  time:
+    formats:
+      own: "%H:%M:%S, %d %B"
+      default: "%d-%m-%Y"
+      long: "%d %B, %Y"
+      short: "%d %b"

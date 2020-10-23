@@ -39,7 +39,8 @@ Rails.application.routes.draw do
       resources :products do
         resources :product_details 
       end 
-      resources :product_details   
+      resources :product_details  
+      resources :orders
       resources :users     
   end
 end
