@@ -16,7 +16,7 @@ class Admin::ApplicationController < ActionController::Base
 
 	def require_admin
 		unless current_user.admin?
-		  redirect_to static_pages_home_path
+		  redirect_to root_path
 		end
 	end
 

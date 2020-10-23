@@ -3,12 +3,16 @@
     <section class="content-header">
       <h1>
         
-        <small>preview of simple tables</small>
+        <small><%=t ".all_user"%></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Users</a></li>
-        <li class="active">Index</li>
+        <li>
+          <%= link_to "#" do  %>
+            <i class="fa fa-dashboard"></i><%=t ".home"%>
+          <% end %>  
+        </li>  
+        <li><%= link_to (t ".users"), "#"%></li>
+        <li class="active"><%=t ".all_user"%></li>
       </ol>
     </section>
 
@@ -18,7 +22,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">User management</h3>
+              <h3 class="box-title"><%=t ".user_management"%></h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
@@ -35,24 +39,51 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Update date</th>
-                  <th>Create date</th>
-                  <th>Edit</th>
+                  <th><%=t ".name"%></th>
+                  <th><%=t ".email"%></th>
+                  <th><%=t ".role_for"%></th>
+                  <th><%=t ".sign_up_date"%></th>
+                  <th><%=t ".shipping_address"%></th>
+                  <th><%=t ".orders"%></th>
+                  <th><%=t ".comments"%></th>
                 </tr>
 
                 <% @users.each do |user| %>
+                 <%orders = user.orders%>
+                 <%comments = user.comments%>
                   <tr>
-                    <th><%=user.id%></th>
-                    <th><%=user.fullname%></th>
-                    <td><%=user.email %></td>
-                    <td><%=user.updated_at%></td>
-                    <td><%=user.created_at%></td>
+                    <td><%=user.id%></td>
                     <td>
-                      <%= link_to user_path(user) do  %>
-                        <i class="fa fa-pencil"></i>
-                      <% end %>
+                      <%if user.fullname.present?%>
+                        <%= link_to (user.fullname), admin_user_path(user.id) %>
+                      <%end%>
+                    </td>                   
+                    <td><%=user.email %></td>
+                    <td>
+                      <%if user.admin?%>
+                        Admin
+                      <%else%>
+                        customer
+                      <%end%>
+                      
+                    </td>
+                    <td><%= l(user.created_at, format: :long)%></td>
+                    <td>
+                      <%if user.fullname.present?%>
+                        <%=t ".recipient's_name"%>: <%=user.fullname %></br>
+                      <%end%>
+                      <%if user.phone.present?%>
+                        <%= t".phone_number"%>: <%=user.phone %></br>
+                      <%end%>
+                      <%if user.address.present?%>
+                        <%= t".address"%>: <%=user.address %> 
+                      <%end%>
+                    </td>
+                    <td>
+                      <%= link_to orders.length.to_s + " " + (t ".order"), admin_user_path(user.id, type: "order")%> 
+                    </td>
+                    <td>
+                      <%= link_to comments.length.to_s + " " + (t ".comment"), admin_user_path(user.id, type:"comment")%>    
                     </td>
                   </tr>
                 <% end %>

@@ -2,10 +2,11 @@ class Admin::OrdersController < Admin::ApplicationController
 
 	def index
 		val = if params[:val] == "oldest"
-            	"oldest"
-	        else
-	            "newest"
-	        end
+	            "oldest"
+	         else
+	             "newest"
+	         end
+
 		if params[:type].present?
 			@orders = Order.status(params[:type].to_i).order_by_time(val).paginate(:page => params[:page], :per_page => Settings.limit_order)	
 			@type = params[:type]		
