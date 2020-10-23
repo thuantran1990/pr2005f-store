@@ -75,10 +75,6 @@
 
 								<% else %>
 
-
-									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>  <%= t ("pages.index.Cart") %></a>
-									</li>
-								
 								<% end %>
 								<li>
 									<%= link_to destroy_user_session_path, method: :delete do %>
@@ -90,17 +86,21 @@
 								<% else %>										
 
 									<li>
-										<a id ="add-login" href="" data-toggle="modal" data-target="#modalLoginForm" >
+										<a id ="add-login" href="" data-toggle="modal" 
+											data-target="#modalLoginForm" >
 											<i class="fa fa-lock"></i> <%= t ("pages.index.Login") %>
 										</a>
 									</li>
 
 								<% end %>
-								
-								<li></i>  <%= link_to t("pages.index.Cart"), cart_path(current_cart.id)  %></li>
-							
-
-
+								<% if user_signed_in? %>
+									<li>
+										<%= link_to carts_path do %>
+											<i class="fa fa-shopping-cart"></i>  
+											<%= t ("pages.index.Cart") %>
+										<% end %>
+									</li>
+								<% end %>
 							</ul>
 						</div>
 					</div>
@@ -142,13 +142,26 @@
 						</div>
 					</div>
 					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+						<div class="search_box pull-right form-inline">
+
+					          <%= search_form_for @q, url: search_path do |f| %>
+					            <%= f.search_field :name_cont, class: "form-control search", placeholder: t('helpers.placeholder.text') %>
+					            <%= button_tag(type: "submit", class: "btn btn-dark button btn1") do %>
+					              <i class="fa fa-search"></i>
+					            <% end %>
+					          <% end %>
+					       
 						</div>
 					</div>
+				 
 				</div>
 			</div>
 		</div><!--/header-bottom-->
+					<%= javascript_tag do %>
+				      I18n.locale = "<%= I18n.locale %>";
+				      I18n.translations = {};
+				      I18n.translations["<%= I18n.locale %>"] = <%= raw I18n::JS.filtered_translations[I18n.locale].to_json %>;
+				    <% end %>
 	</header><!--/header-->
 
 

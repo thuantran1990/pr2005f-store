@@ -70,7 +70,8 @@ vi:
     placeholder:
       name: tên 
       password: "Mật khẩu"
-      password_confirmation: Nhắc lại mật khẩu    
+      password_confirmation: Nhắc lại mật khẩu  
+      text: nhập giá trị cần tìm kiếm  
   links:
     View: "Xem tất cả sản phẩm" 
     Users: Người dùng
@@ -250,5 +251,10 @@ vi:
       default: "%d-%m-%Y"
       long: "%d %B, %Y"
       short: "%d %b"   
+  evaluators:
+    alert:
+      login: "Yêu cầu đăng nhập" 
+      cart: "Thêm vào giỏ hàng thành công"  
+      delete: "Xóa thành công"     
 
 

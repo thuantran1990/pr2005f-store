@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   
    
   $(".add-key").click(function(){
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $(".delete-product").click(function(){
     var id = $(this).data('id');
     $.ajax({
@@ -43,7 +43,7 @@ $(document).ready(function(){
       },
       success: function(data) {
         $(".xoa-"+id).remove();
-        alert("xoa thanh cong");
+        alert(I18n.t("evaluators.alert.delete"));
       }  
     
     });
@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $( ".add-key" ).mouseout(function() {
     
     var id = $(this).data('idproduct');
