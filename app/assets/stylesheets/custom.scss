@@ -35,8 +35,54 @@
 
 .margin50px{
 	margin-top:50px;
-
 }
+
+.Awaiting.check{
+	background-color: #0080FF;
+}
+.Canceled.by.seller{
+	background-color: #8A0808;
+}
+.Accepted{
+	background-color: #01DF3A;
+}
+.Processing{
+	background-color: #FF8000;
+}
+.Shipping{
+	background-color: #8000FF;
+}
+.Delivered{
+	background-color: #0B6138;
+}
+.Refunded{
+	background-color: #FFBF00;
+}
+.Canceled.by.buyer{
+	background-color: #FE2E2E;
+}
+
+.lang a{
+	color: white;
+	font-weight: bold;
+}
+
+.lang {
+	color: white;
+	font-weight: bold;
+	margin-top: 12px;
+    margin-left: 20px;
+}
+
+.fa-eye {
+	margin-left: 10%;
+}
+
+.index-img {
+	width: 10%;
+    float: left;
+}
+
 
 .phongto{
 	transition: transform 1.2s;
@@ -100,3 +146,85 @@
 }
 
 
+.fa-reply{
+	margin-right: 10px;
+}
+
+.pr-name {
+	margin-left: 10px;
+}
+
+
+.phongto{
+	transition: transform 1.2s;
+}
+
+.phongto:hover{
+	transform: scale(1.2);
+}
+
+.button-login{
+	width:50px!important;
+	font-size: 15px!important;
+	text-align: center!important;
+}
+.admin-logo{
+	font-size: 36px;
+	color: skyblue; 
+}
+.pr-left{
+	float: left;
+}
+.color_select input[type="radio"] {
+  display: none;
+}
+
+.color_select span {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px!important;
+  text-transform: uppercase;
+  border: 2px solid gold;
+  border-radius: 3px;
+  color: gold;
+}
+
+.color_select input[type="radio"]:checked + span {
+  background-color: gold;
+  color: black;
+}
+.size_select input[type="radio"] {
+  display: none;
+}
+
+.size_select span {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px!important;
+  text-transform: uppercase;
+  border: 2px solid gold;
+  border-radius: 3px;
+  color: gray;
+}
+
+.size_select input[type="radio"]:checked + span {
+  background-color: skyblue;
+  color: red;
+}
+
+
+#notice-select{
+	color: red;
+}
+
+.product-description {
+	width: 80%;
+}
+
+.index-img.aaa{
+	width: 300px;
+}
+
+td.content{
+	width: 40%;	
+}

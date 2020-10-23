@@ -53,32 +53,7 @@ vi:
       Availability:  Sẵn có
       Quantity: "Số lượng"
       Store: Cửa hàng     
-      notice: "Khong tim thay san pham"
-
-  admin:
-    static_pages:
-      home:
-        Admin_pages: Quản Lý
-        
-  admin: 
-    product_details_controller:
-      update:
-        not_updated: không thể cập nhật   
-        not_found: không tìm thấy    
-  admin:
-    products:
-      show: 
-        Color: Màu sắc
-        Size: Kích thước        
-        Price: Giá        
-        Update_date: Cập nhật           
-        Create_date: Khởi tạo         
-        edit: chỉnh sửa 
-        not_found: not found 
-      update:
-        Product_updated: sản phẩm đã được thay đổi
-
-              
+      notice: "Khong tim thay san pham"             
   devise:
     sessions:
       new:
@@ -100,11 +75,114 @@ vi:
     View: "Xem tất cả sản phẩm" 
     Users: Người dùng
     All_products: Sản phẩm 
-    Create product: Tạo mới sản phẩm      
+    Create product: Tạo mới sản phẩm    
 
-
-
-
-              
+  admin:
+    static_pages:
+      home:
+        Admin_pages: Quản Lý
+    product_details_controller:
+      update:
+        not_updated: không thể cập nhật   
+        not_found: không tìm thấy    
+    products:
+      show: 
+        Color: Màu sắc
+        Size: Kích thước        
+        Price: Giá        
+        Update_date: Cập nhật           
+        Create_date: Khởi tạo         
+        edit: chỉnh sửa 
+        not_found: not found 
+      update:
+        Product_updated: sản phẩm đã được thay đổi
+    layouts:
+      static_pages:
+        home:
+          Admin_pages: Quản Lý 
+    product_details_controller:
+      update:
+        not_updated: không thể cập nhật   
+        not_found: không tìm thấy    
+    products:
+      show: 
+        Color: Màu sắc
+        Size: Kích thước        
+        Price: Giá        
+        Update_date: Cập nhật           
+        Create_date: Khởi tạo         
+        edit: chỉnh sửa 
+        not_found: not found  
+      update:
+        Product_updated: sản phẩm đã được thay đổi  
+    orders:
+      index:
+        buyer: "Người mua"
+        products: "Các sản phẩm"
+        price: "Tổng tiền (VND)" 
+        order_status: "Trạng thái đơn hàng" 
+        update_at: "Cập nhật lúc" 
+        create_at: "Tạo lúc" 
+        home: "Trang chủ"
+        orders: "Quản lý đơn hàng"
+        all_orders: "Tất cả đơn hàng"
+        filter: "Bộ lọc"
+        order: "Đơn hàng"
+        order1: "Xếp theo"
+        newest: "Mới nhất"
+        oldest: "Cũ nhất"
+        phone_number: "Số điện thoại"
+        address: "Địa chỉ"
+        quantity: "Số lượng"
+        order_id: "ID đơn hàng "
+        created_by: "Được tạo bởi"
+        shipping_info: "Thông tin giao hàng"
+        purchased: "Đã mua"
+        view: "Xem"
+        recipient's_name: "Tên người nhận"
+        items: "Sản phẩm"
+        all_orders: "Tất cả đơn hàng"
+        order_status0: "Chờ xác nhận"
+        order_status1: "Hủy bởi người bán"
+        order_status2: "Đã xác nhận"
+        order_status3: "Đang xử lý"
+        order_status4: "Đang vận chuyển"
+        order_status5: "Giao thành công"
+        order_status6: "Đã hoàn tiền"
+        order_status7: "Bị hủy bởi người mua"
+        update_message: "Cập nhật trạng thái các đơn hàng này"               
+      show:
+        home: "Trang chủ"
+        orders: "Quản lý đơn hàng"
+        order: "Đơn hàng"
+        order_detail: "Chi tiết đơn hàng"
+        bill_details: "Chi tiết hóa đơn"
+        total_price: "Tổng tiền"
+        shipping: "Phí vận chuyển"
+        bill_value: "Tổng hóa đơn"
+        payment_information: "Thông tin hanh toán"
+        cash_on_delivery: "Thanh toán khi nhận hàng"
+        shipping_address: "Địa chỉ giao hàng"
+        recipient's_name: "Tên người nhận"
+        phone_number: "Số điện thoại"
+        address: "Địa chỉ"
+        all_items: "Tất cả sản phẩm"
+        product: "Sản phẩm"
+        item's_retail_price: "Đơn giá"
+        quantity: "Số lượng"
+        total: "Tổng tiền"
+  number:
+    currency:
+      format:
+        format: "%n%u" # %u = unit, %n = number
+        unit: " VND"
+        delimiter: ','
+        precision: 0
+  time:
+    formats:
+      own: "%H:%M:%S, %d %B"
+      default: "%d-%m-%Y"
+      long: "%d %B, %Y"
+      short: "%d %b"   
 
 
