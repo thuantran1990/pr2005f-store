@@ -188,6 +188,10 @@ vi:
         user_management: "Quản lý người dùng"
         name: "Tên người dùng"
         users: "Quản lý người dùng"
+        order1: "Sắp xếp"
+        newest: "Mới nhất"
+        oldest: "Cũ nhất"
+        largest: "Đặt hàng nhiều nhất"
       show:
         home: "Trang chủ"
         users: "Quản lý người dùng"
@@ -219,7 +223,20 @@ vi:
         order_status6: "Đã hoàn tiền"
         order_status7: "Bị hủy bởi người mua"
         not_found_user: "Không tìm thấy user"
-
+    comments:
+      index:
+        all_comments: "Quản lý bình luận"
+        home: "Trang chủ"
+        comments: "Các bình luận"
+        comment: "Bình luận"
+        comment_management: "Quản lý người dùng"
+        order1: "Sắp xếp"
+        newest: "Mới nhất"
+        oldest: "Cũ nhất"
+        comment_for: "Bình luận cho"
+        action: "Hành động"
+        content: "Nội dung"
+        
   number:
     currency:
       format:

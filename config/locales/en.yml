@@ -217,6 +217,10 @@ en:
         user_management: "User management"
         name: "Name"
         users: "Users"
+        order1: "Order"
+        newest: "Newest"
+        oldest: "Oldest"
+        largest: "Most orders"
       show:
         home: "Home"
         users: "Users"
@@ -248,6 +252,18 @@ en:
         order_status6: "Refunded"
         order_status7: "Canceled by buyer"
         not_found_user: "Not found user"
+    comments:
+      index:
+        all_comments: "All comment"
+        home: "Home"
+        comments: "Comments"
+        comment: "Comment"
+        order1: "Order"
+        newest: "Newest"
+        oldest: "Oldest"
+        comment_for: "Comment for"
+        action: "Action"
+        content: "Content"
 
   number:
     currency:
