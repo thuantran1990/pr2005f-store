@@ -114,7 +114,7 @@
 
                 </tbody>
               </table>
-              <%= will_paginate @orders%>
+              <%= will_paginate @orders, :previous_label => '<<', :next_label => '>>'%>
             </div>
             <!-- /.box-body -->
           </div>

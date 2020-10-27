@@ -41,6 +41,6 @@ Rails.application.routes.draw do
       end 
       resources :product_details  
       resources :orders
-      resources :users     
+      resources :users 
   end
 end
