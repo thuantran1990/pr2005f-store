@@ -26,5 +26,6 @@ limit_user_comments: 5
                      
 limit_user: 8                   
 
+limit_comments: 8                   
 
 
