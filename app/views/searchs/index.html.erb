@@ -1,0 +1,11 @@
+<% provide(:title, t("search.name")) %>
+<% provide(:base_title, t("base.title")) %>
+<div class="row">
+  <h2 class="text-center"><%= t("search.result") %></h2>
+  <hr>
+
+  <h3 class="text-center" id="products" style="color:red">
+    <%= render(@products) || t("search.not_found", keyword: @keyword) %>
+  </h3>
+</div>
+

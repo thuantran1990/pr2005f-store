@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
-	def show
+
+	def index
 		@hash_content = current_cart.content
+	end
+
+	def show
 		
 	end
 end

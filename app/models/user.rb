@@ -4,8 +4,10 @@ class User < ApplicationRecord
 	has_many :sub_comments, dependent: :destroy
 	has_many :order_details, through: :orders
 	has_one_attached :image
+
 	scope :order_by_time,->{ order(created_at: :desc) }	
 	scope :order_by_orders, -> { left_joins(:orders).group(:user_id).order('COUNT(orders.id) DESC')}
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable,
   devise :database_authenticatable, :registerable,

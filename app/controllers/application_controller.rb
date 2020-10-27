@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	include SessionsHelper
 	  # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_action :set_search
 
   include ProductsHelper
   protect_from_forgery 
@@ -16,7 +17,9 @@ class ApplicationController < ActionController::Base
     end
   end
  
-
+  def set_search
+    @q = Product.includes(:image_attachments).ransack(params[:q])
+  end
  
   protected
   

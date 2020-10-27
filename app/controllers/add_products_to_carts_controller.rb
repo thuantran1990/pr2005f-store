@@ -1,7 +1,7 @@
 class AddProductsToCartsController < ApplicationController
 	before_action :authenticate_user!
 	
-	def update	
+	def update
 		@product_detail = ProductDetail.find_by product_id: params[:id], size: params[:size], color: params[:color]
 		if @product_detail.present?
 			id_product_detail = @product_detail.id
@@ -9,7 +9,6 @@ class AddProductsToCartsController < ApplicationController
 			@hash_content = current_cart.content
 		
 			if @hash_content.nil?
-
 				@hash_content ={"#{id_product_detail}": quantity_product_detail}			
 			elsif @hash_content.has_key?("#{id_product_detail}")&& params[:cart_identy].nil?
 				@old_quantity = current_cart.content["#{id_product_detail}"]
@@ -17,7 +16,8 @@ class AddProductsToCartsController < ApplicationController
 			else
 				@hash_content[:"#{id_product_detail}"] = quantity_product_detail
 			end
-			current_cart.update!(content: @hash_content)
+			current_cart.update!(content: @hash_content, user_id: current_user.id)
+
 
 			@quantity = current_cart.content["#{id_product_detail}"]
 
@@ -42,13 +42,14 @@ class AddProductsToCartsController < ApplicationController
 		 end
 	end
 
-	def destroy		
+	def destroy	
 		id_product_detail = params[:id]
-		@hash_content = current_cart.content.reject!{|key, value| key == "#{id_product_detail}"}
+		@hash_content = current_cart.content.reject!{|key, value| 
+			key == "#{id_product_detail}"}
 		if @hash_content.empty?
 			@hash_content =  nil
-			current_cart.update!(content: @hash_content)
 		end
+		current_cart.update!(content: @hash_content)
 		flash.now[:success] = "san pham xoa thanh cong "
 		render json: {   
 	      current_cart:  current_cart

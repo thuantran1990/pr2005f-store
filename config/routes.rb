@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
 
   	  devise_for :users,
+              controllers: {
+                sessions: 'users/sessions'
+              },
               path: '',
               path_names: {sign_in: 'login' ,sign_out: 'logout' ,edit: 'profile',sign_up: 'resgistration'},
               controllers: {omniauth_callbacks: 'omniauth_callbacks' }      
@@ -44,4 +47,5 @@ Rails.application.routes.draw do
       resources :users 
       resources :comments 
   end
+  get "/search", to: "searchs#index"
 end

@@ -31,6 +31,9 @@ import 'bootstrap/dist/css/bootstrap-theme';
 import '../stylesheets/application';
 import "font-awesome/css/font-awesome.css";
 import 'cocoon-js';
+import I18n from "i18n-js";
+
+global.I18n = I18n;
 
 
 

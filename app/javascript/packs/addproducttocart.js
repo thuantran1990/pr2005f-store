@@ -1,5 +1,5 @@
 var a = 1;
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
  
   $("#add").click(function(){
   	 a += 1;
@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
  
   $("#reduce").click(function(){
   	if(a>1){
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 
 
-  $(document).ready(function(){
+  $(document).on('turbolinks:load', function(){
     var url = window.location.pathname;
       var product_id = url.substring(url.lastIndexOf('/') + 1);
     $(document).on('click', '.color-button', function(){
@@ -65,7 +65,7 @@ $(document).ready(function(){
             datatype: "json",
             type: 'put',
             error: function(){ 
-                alert("vui long dang nhap");
+                alert(I18n.t("evaluators.alert.login"));
               
                 $("#add-login").click();
             },
@@ -75,7 +75,7 @@ $(document).ready(function(){
                  
                 } else if(data.success){
                   
-                  alert("them gio hang thanh cong");
+                  alert(I18n.t("evaluators.alert.cart"));
                 }
             } 
 

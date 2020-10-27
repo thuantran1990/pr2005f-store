@@ -1,12 +1,19 @@
 class ProductsController < ApplicationController
 	before_action :find_product, only: :show
 	def index
-		@products = Product.send(params["classify"])
-		render json: {
-			data_products: render_to_string(@products)
-		}, status: :ok
-
+			
+			@products = Product.send(params["classify"])
+			render json: {
+				data_products: render_to_string(@products.includes([:image_attachments]))
+			}, status: :ok
+	
 	end	
+	
+  
+	  def search_params
+	    return nil unless params[:product_list]
+	    params.require(:product_list).permit :name_or_classify
+	  end
 	def show
 
 		@supports = Supports::Product.new @product
