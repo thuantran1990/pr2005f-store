@@ -37,10 +37,10 @@
 	margin-top:50px;
 }
 
-.Awaiting.check{
+.Awaiting_check{
 	background-color: #0080FF;
 }
-.Canceled.by.seller{
+.Canceled_by_seller{
 	background-color: #8A0808;
 }
 .Accepted{
@@ -58,7 +58,7 @@
 .Refunded{
 	background-color: #FFBF00;
 }
-.Canceled.by.buyer{
+.Canceled_by_buyer{
 	background-color: #FE2E2E;
 }
 
@@ -233,3 +233,26 @@ td.action{
 	width: 10%;	
 }
 
+.productinfo.text-center a img{
+	height: 380px;
+    width: 260px;
+    object-fit: cover;
+}
+
+div.inner{
+	margin-left: 40px;
+}
+
+.icon i {
+	margin-right: 40px;
+}
+
+.add_product a{
+	float: right; 
+	margin-bottom: 20px; 
+	margin-right: 20px;
+}
+
+li.sidebar_unit{
+	height: auto;
+}

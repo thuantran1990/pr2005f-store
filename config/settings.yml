@@ -15,8 +15,8 @@ size:
 limit_product: 4 
 
 order_status:
-  ["Awaiting check", "Canceled by seller", "Accepted", "Processing",
-            "Shipping", "Delivered", "Refunded", "Canceled by buyer"]
+  ["Awaiting_check", "Canceled_by_seller", "Accepted", "Processing",
+            "Shipping", "Delivered", "Refunded", "Canceled_by_buyer"]
 
 limit_order: 8 
 
@@ -28,4 +28,4 @@ limit_user: 8
 
 limit_comments: 8                   
 
-
+limit_dashboard_order: 6
