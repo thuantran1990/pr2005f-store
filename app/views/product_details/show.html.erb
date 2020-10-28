@@ -1,0 +1,96 @@
+
+
+<div class = "container">
+	<div class = "row">
+		<div class="col-sm-9 padding-right" >
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product phongto">
+
+								<%= image_tag @product_detail.product.image[0] if @product_detail.product.image.attached? %>
+								
+								<h3 class = "phongto">ZOOM</h3>
+							</div>
+							<div id="similar-product" class="carousel slide" data-ride="carousel">
+								
+
+								  <!-- Controls -->
+								  <a class="left item-control" href="#similar-product" data-slide="prev">
+									<i class="fa fa-angle-left"></i>
+								  </a>
+								  <a class="right item-control" href="#similar-product" data-slide="next">
+									<i class="fa fa-angle-right"></i>
+								  </a>
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="images/product-details/new.jpg" class="newarrival" alt="">
+
+								<h2><%= @product_detail.product.name %></h2>
+								
+								<img src="images/product-details/rating.png" alt="">
+								<p>
+									<% if @product_detail.discount.present? %>
+						
+										<input id = "productdetail-product-id" type = 'hidden' value = "<%=@product_detail.product.id %>">
+									
+									  <h1 class="font-size-lg font-weight-bold text-gray-350 " style =  "text-decoration: line-through;">
+									  		Initial price: <%= @product_detail.price %>$
+									   </h1>
+									<% end %>
+									<br>
+									<h1 class="ml-1 font-size-h5 font-weight-bolder text-primary">
+										 discounted: <%= @product_detail.discount_price %>$
+									</h1>
+								</p>	
+
+								<p id="notice-select"></p>
+						
+								<span>
+									<label><%= t".Quantity" %>:</label>
+									
+									<button id ="add">+</button>
+									<input id ="result_quantity" type ="text" value = "1">
+									<button id ="reduce">-</button>
+
+									
+										<button type="button" class="btn btn-fefault cart " id = "product-detail-cart">
+											<i class="fa fa-shopping-cart"></i>
+
+
+										Add to cart
+									</button>
+
+									
+									<h3>color:</h3>
+									<p class = "select_color">
+										<input id = "select_color" type = "hidden" value = "<%= @product_detail.color %>" >
+										<%= @product_detail.color %>
+										<br>
+									</p>
+									<h3>Size:</h3>
+									<p class = "select_size">
+										<%= @product_detail.size %>
+										<input id = "select_size" type = "hidden" value = "<%= @product_detail.size %>" >
+									</p>	
+
+								</span>
+
+								<p><b><%= t".Availability" %>:</b> In Stock</p>
+								<p><b><%= t"products.show.Condition" %>: </b> New</p>
+								<p><b><%= t".Store"%>:</b> E-SHOPPER</p>
+								<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""></a>
+
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+				
+		</div>
+	</div>
+</div>		
+
+
+
+

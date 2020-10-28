@@ -1,0 +1,17 @@
+<% if product_detail.discount.present? %>
+	<div class="col-sm-4 index-home" >
+		<div class="product-image-wrapper">
+			<div class="single-products">
+				<div class="productinfo text-center">
+					<%= image_tag product_detail.product.image[0] if product_detail.product.image.attached? %>
+					<h2><%= product_detail.discount_price %></h2>
+					<p><%= product_detail.product.name %></p>
+					<%= link_to product_product_detail_path(product_detail.product,product_detail) , class: "btn btn-default add-to-cart" do %>
+						<i class="fa fa-shopping-cart"></i>
+							<%= t("pages.index.Add_to_cart") %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

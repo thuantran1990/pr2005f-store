@@ -6,6 +6,16 @@ class ProductDetail < ApplicationRecord
   
   enum size: Settings.size
   scope :display_by_color, ->(color){where("color like ?", color)}
+
+ def discount_price
+    if self.discount.present?
+        self.price -= self.price* self.discount / 100
+    else
+       self.price 
+    end
+  end
+ 
+
   
   private 	
 		def down_case_color

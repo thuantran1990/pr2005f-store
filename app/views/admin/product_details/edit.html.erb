@@ -23,7 +23,7 @@
           <%= form_for [:admin, @product_detail] do |f| %>
             <div class="box-body">
               <div class="form-group">
-                <%= f.label :color, "Product name" %>
+                <%= f.label :color, t(".Color") %>
                 <%= f.text_field :color, class: 'form-control', placeholder:"Enter color" %>
               </div>
 
@@ -38,8 +38,12 @@
               </div>
 
               <div class="form-group">
-                <%= f.label :price, "Price" %>
+                <%= f.label :price, t(".Price") %>
                 <%= f.text_field :price, class: 'form-control', placeholder:"Enter price" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :discount, t(".discount") %>
+                <%= f.number_field :discount, class: 'form-control', placeholder:"Enter price" %>
               </div>
 
               <div class="box-footer">
