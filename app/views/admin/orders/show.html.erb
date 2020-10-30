@@ -103,8 +103,9 @@
                   <td> <%= t".total"%> </td>
                 </tr>  
              
-              <% @order_details.each do |order_detail| %>          
-                <% product = Product.find_by(id: order_detail.product_id) %>
+              <% @order_details.each do |order_detail| %> 
+                <% product_detail =  order_detail.product_detail %>        
+                <% product = Product.find_by(id: product_detail.product_id) %>
                 <tr class = "title-table">
                   <td>
                     <ul class="products-list product-list-in-box">

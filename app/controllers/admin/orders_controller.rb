@@ -1,6 +1,7 @@
 class Admin::OrdersController < Admin::ApplicationController
 
 	def index
+		
 		val = if params[:val] == "oldest"
 	            "oldest"
 	         else
@@ -28,7 +29,9 @@ class Admin::OrdersController < Admin::ApplicationController
 
 
 	def show
+
 		@order = Order.find_by(id: params[:id])
+
 		if @order.nil?
 			flash[:danger] = 'Không tìm thấy chi tiết sản phẩm này'
 			redirect_to admin_orders_path

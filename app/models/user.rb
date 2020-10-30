@@ -17,7 +17,8 @@ class User < ApplicationRecord
 
     def current_user?(user)
 		user && user == self
-	end     
+	end    
+
     class << self     
 	    def from_omniauth(auth)
 	   		result = User.where(email: auth.info.email).first

@@ -39,10 +39,20 @@ Rails.application.routes.draw do
 
         namespace :admin do
             get 'static_pages/home'
+            resources :users do
+                resources :orders do
+                    resources :product_details 
+                end
+
+            end 
             resources :products do
               resources :product_details 
 
-            end      
+            end 
+            resources :orders
+            resources :comments 
+            resources :users
+            resources :product_details      
         end
     end 
     devise_for :users,

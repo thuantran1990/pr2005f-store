@@ -15,6 +15,17 @@ class ProductDetail < ApplicationRecord
        self.price 
     end
   end
+def self.to_csv
+    attributes = %w{id size color product_id}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |product_detail|
+        csv << attributes.map{ |attr| product_detail.send(attr) }
+      end
+    end
+end 
  
   private 	
 		def down_case_color
