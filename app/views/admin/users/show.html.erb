@@ -103,7 +103,10 @@
 			                <tr class = "title-table">
 			                  <td><%= order.id %></td>
 			                  <td>  
-		                        <%= link_to order_items.to_s + " " + (t ".items"), admin_order_path(order.id)%>
+		                        <%= link_to order_items.to_s + " " + (t ".items"), admin_user_order_path(@user, order)%>
+			                  </td>
+			                  <td>
+			                  		<%= link_to "CSV", admin_user_order_path(@user,order)%>
 			                  </td>
 			                  <td><%= l(order.created_at, format: :long)%></td>
 			                  <td><%=number_to_currency(order.total_price)%></td>
@@ -113,7 +116,7 @@
 			                  	</span>
 			                  </td>
 			                  <td>
-			                  	<%= link_to admin_order_path(order.id) do  %>
+			                  	<%= link_to admin_user_order_path(order.id) do  %>
 							      <i class="fa fa-eye"></i>
 							    <% end %>
 							  </td>

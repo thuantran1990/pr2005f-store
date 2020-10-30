@@ -62,7 +62,7 @@
                     <td><%=user.id%></td>
                     <td>
                       <%if user.fullname.present?%>
-                        <%= link_to (user.fullname), admin_user_path(user.id) %>
+                        <%= link_to (user.fullname), admin_user_path(user) %>
                       <%end%>
                     </td>                   
                     <td><%=user.email %></td>
