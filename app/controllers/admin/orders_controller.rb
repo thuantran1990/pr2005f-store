@@ -1,6 +1,7 @@
 class Admin::OrdersController < Admin::ApplicationController
 
 	def index
+		
 		val = if params[:val] == "oldest"
 	            "oldest"
 	         else
@@ -29,6 +30,12 @@ class Admin::OrdersController < Admin::ApplicationController
 
 	def show
 		@order = Order.find_by(id: params[:id])
+			@product_details = @order.product_details
+			 respond_to do |format|
+		      format.html
+		      format.csv { send_data @product_details.to_csv, filename: "order-#{Date.today}.csv" }
+		  	 end
+
 		if @order.nil?
 			flash[:danger] = 'Không tìm thấy chi tiết sản phẩm này'
 			redirect_to admin_orders_path

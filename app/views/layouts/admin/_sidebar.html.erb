@@ -22,13 +22,13 @@
           </a>
         </li>
         <li class = "sidebar_unit" >
-            <%= link_to admin_products_path do %>
+            <%#= link_to admin_user_products_path do %>
               <i class="fa fa-cubes"></i>
               <span><%= t("links.Products") %></span>
-            <% end %> 
+            <%# end %> 
         </li>
         <li class = "sidebar_unit" >
-            <%= link_to admin_orders_path do %>
+            <%= link_to admin_user_orders_path(current_user) do %>
               <i class="fa fa-shopping-bag"></i>
               <span><%= t("links.Orders") %></span>
             <% end %> 
