@@ -280,7 +280,10 @@
 									<p><b>Let us know your opinion</b></p>
 								<div class = "row">
 									<% if user_signed_in? %>	
-									   <%= render "comments/form", product: @product, parent_id:"", comment_new: @comment %>	
+									   <%= render "comments/form", product: @product, parent_id:"", comment_new: @comment %>
+									   <% if can? :update, @comment %>
+										  <%= link_to "Edit", edit_comment_path(@comment) %>
+										<% end %>	
 									<% end %> 
 								
 									<div id = "append-comment">		
@@ -289,7 +292,8 @@
 
 										<% end %>
 									</div>
-									<div id = "infinite-scrolling">
+								
+							<div id = "infinite-scrolling">
 										
 									</div>		
   								</div>			 

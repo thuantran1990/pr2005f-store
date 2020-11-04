@@ -1,8 +1,12 @@
+<% if cannot? :destroy, Product%>
 	<div class="col-sm-4 pr-left">
 		<div class="product-image-wrapper">
 				<div class="single-products" >
 					<div class="productinfo text-center">
-							<%= link_to (image_tag product.image[0] if product.image.attached?), product_path(product) %>
+							
+
+								<%= link_to (image_tag product.image[0] if product.image.attached?), product_path(product) %>
+							
 							<% product.product_details.pluck(:price)[0] %>
 							<p><%= product.name %></p>	
 							<a href="#" data-toggle="modal" data-target="#showproduct<%= product.id %>">
@@ -17,3 +21,4 @@
 			</div>
 		</div>
 	</div>
+<%end%>

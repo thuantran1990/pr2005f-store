@@ -79,3 +79,4 @@ gem 'bullet', group: 'development'
 gem "ransack"
 gem 'i18n-js'
 gem "dotenv-rails"
+gem "cancancan", "~> 2.0"

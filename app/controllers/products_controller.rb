@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-	before_action :find_product, only: :show
+	before_action :find_product, only: [:show,:destroy]
 	def index
-			
 			@products = Product.send(params["classify"])
 			render json: {
 				data_products: render_to_string(@products.includes([:image_attachments]))
@@ -15,24 +14,33 @@ class ProductsController < ApplicationController
 	    params.require(:product_list).permit :name_or_classify
 	  end
 	def show
+		 if cannot? :read, @product
+		 	 authorize! :read, @product
+		 else
+			@supports = Supports::Product.new @product
+			if current_user.present?
+				@comment = current_user.comments.build
+			end
 
-		@supports = Supports::Product.new @product
-		if current_user.present?
-			@comment = current_user.comments.build
+			@comments = @product.comments.paginate(page: params[:page])
+			color = params['color']
+			if color.present?
+				@product_details = @product.product_details.display_by_color color
+				render json:{
+						data_color:  @product_details.pluck(:size).uniq,
+						data_all: @product.product_details.pluck(:size).uniq
+				},status: :ok
+			else 
+				@product_details = @product.product_details
+			end
 		end
-
-		@comments = @product.comments.paginate(page: params[:page])
-		color = params['color']
-		if color.present?
-			@product_details = @product.product_details.display_by_color color
-			render json:{
-					data_color:  @product_details.pluck(:size).uniq,
-					data_all: @product.product_details.pluck(:size).uniq
-			},status: :ok
-		else 
-			@product_details = @product.product_details
+	end
+	def destroy
+		
+		if cannot? :destroy, @product
+			authorize! :destroy, @product
 		end
-			
+		
 	end
 	
 	private
