@@ -106,7 +106,7 @@
 		                        <%= link_to order_items.to_s + " " + (t ".items"), admin_user_order_path(@user, order)%>
 			                  </td>
 			                  <td>
-			                  		<%= link_to "CSV", admin_user_order_path(@user,order)%>
+			                  		<%= link_to "CSV", admin_order_path(order,format: :csv)%>
 			                  </td>
 			                  <td><%= l(order.created_at, format: :long)%></td>
 			                  <td><%=number_to_currency(order.total_price)%></td>
