@@ -16,7 +16,12 @@ class OrdersController < ApplicationController
 		pr = order_params.merge(order_status: order_params[:order_status].to_i)
 		@order = Order.new pr
 		if @order.save!
-			redirect_to @order,notice: t('orders.create.notice')
+			  ExampleMailer.sample_email(current_user).deliver
+			   respond_to do |format|
+			      format.html { redirect_to @order, notice: 'Order was successfully created.' }
+			      format.json { render :show, status: :created, location: current_user }
+			    end
+			 
 			if current_user.address.nil?
 				current_user.update(address:@order.address)
 			elsif current_user.phone.nil?
