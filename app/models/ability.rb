@@ -5,7 +5,7 @@ class Ability
     can :read, Product do |product|
         product.created_at == Time.now
     end
-    can :destroy, Product if current_user.admin?
+    can :destroy, Product if current_user.present?&&current_user.admin?
     can :read, Comment
     # Define abilities for the passed in user here. For example:
     #
