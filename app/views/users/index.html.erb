@@ -1,0 +1,29 @@
+<%= search_form_for @u do |f| %>
+  <%#Tìm kiếm với name like %abc% %>
+
+  <%= f.label :fullname_cont %>
+  <%= f.search_field :fullname_cont %>
+
+  <%# Tìm kiếm nhiều field like %abc%%>
+  <%= f.label :fullname_or_address_cont %>
+  <%= f.search_field :fullname_or_address_cont %>
+
+  <%= f.submit %>
+<% end %>
+<div class="container">
+
+	<table class="table table-condensed">
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+		</tr>
+		<% @people.each do|user|%>
+
+		<tr>
+			<td><%= user.fullname%> </td>
+			<td><%= user.address%></td>
+		</tr>
+				
+		<%end%>
+	</table>
+</div>

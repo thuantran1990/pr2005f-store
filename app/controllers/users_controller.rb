@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	before_action :check_login, only: :new
-	
+	def index
+		 @u = User.ransack(params[:q])
+ 		 @people = @u.result(distinct: true)
+	end
 	 def show
 	 	@user = User.find_by id: params[:id]
 	 	if @user.nil?
