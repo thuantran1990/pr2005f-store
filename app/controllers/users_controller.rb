@@ -5,7 +5,7 @@ class UsersController < ApplicationController
  		 @people = @u.result(distinct: true)
 	end
 	 def show
-	 	@user = User.find_by id: params[:id]
+	 	@user = User.friendly.find(params[:id])
 	 	if @user.nil?
  			flash[:danger] = "user not found"
  			redirect_to root_url

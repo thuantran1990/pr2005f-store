@@ -8,6 +8,11 @@ class User < ApplicationRecord
 	scope :order_by_orders, -> { left_joins(:orders).group(:user_id).order('COUNT(orders.id) DESC')}
 	has_one :cart
 	scope :count_user, -> {where('created_at >=?', 24.hour.ago)}
+	extend FriendlyId
+ 	friendly_id :fullname, use: :slugged
+ 	def should_generate_new_friendly_id?
+    	fullname_changed? || super
+  	end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable,

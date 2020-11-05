@@ -81,3 +81,4 @@ gem 'i18n-js'
 gem "dotenv-rails"
 gem "cancancan", "~> 2.0"
 gem "ransack"
+gem 'friendly_id', '~> 5.4.0'
