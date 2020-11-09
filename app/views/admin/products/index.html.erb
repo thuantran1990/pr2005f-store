@@ -47,6 +47,8 @@
                   <th>Create date</th>
                   <th>Product details</th>
                   <th>Edit</th>
+                  <th>Delete</th>
+                  <th>restore</th>
                 </tr>
 
                 <% @products.each do |product| %>
@@ -70,7 +72,23 @@
                     <td>
                       <%= link_to edit_admin_product_path(product.id) do  %>
                         <i class="fa fa-pencil"></i>
+
                       <% end %>
+                    </td>
+                    <td>
+                    <% if product.deleted_at.nil?%>
+                      <%= link_to admin_product_path(product.id), method: :delete do  %>
+                        <i class="fa fa-pencil"></i>
+                        
+                      <% end %>
+                    <%end%>
+                    </td>
+                     <td>
+                     <% if product.deleted_at.present?%>
+                        <%= link_to admin_products_path(type: product.id) do  %>
+                          <i class="fa fa-pencil"></i>
+                        <% end %>
+                      <%end%>
                     </td>
                   </tr>
                 <% end %>

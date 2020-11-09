@@ -3,7 +3,12 @@ class Admin::ProductsController < Admin::ApplicationController
 
 	def index
 
-        @products = Product.includes([:product_details, :image_attachments]).all 
+        if  params[:type].present?
+            Product.restore(params[:type],recursive: true)
+            redirect_to admin_products_path
+        end
+        @products = Product.with_deleted.includes([:product_details, :image_attachments]).all 
+
 
 	end
 
@@ -23,6 +28,7 @@ class Admin::ProductsController < Admin::ApplicationController
         end
     end
     def show
+
         @product_details = @product.product_details
         if @product_details.empty?
             flash[:danger] = ''
@@ -43,7 +49,7 @@ class Admin::ProductsController < Admin::ApplicationController
     end
 
     def destroy
-
+         @product.destroy
     end 
 
     private
