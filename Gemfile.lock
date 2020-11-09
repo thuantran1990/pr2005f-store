@@ -160,9 +160,13 @@ GEM
       dry-schema (~> 1.5, >= 1.5.2)
     erubi (1.9.0)
     execjs (2.7.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -238,6 +242,8 @@ GEM
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     public_suffix (4.0.6)
@@ -381,6 +387,8 @@ DEPENDENCIES
   config
   devise
   dotenv-rails
+  faker
+  font-awesome-rails
   font-awesome-sass
   i18n-js
   jbuilder (~> 2.7)
@@ -391,6 +399,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+  paranoia (~> 2.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rails-i18n

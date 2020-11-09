@@ -9,6 +9,7 @@
 							
 							<% product.product_details.pluck(:price)[0] %>
 							<p><%= product.name %></p>	
+							
 							<a href="#" data-toggle="modal" data-target="#showproduct<%= product.id %>">
 								<i class="fa fa-shopping-cart"></i><%= t("pages.index.Add_to_cart") %></a>	
 					</div> 

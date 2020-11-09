@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 	before_action :find_product, only: [:show,:destroy]
 	def index
-			
+		
 		@products = Product.send(params["classify"])
 		render json: {
 			data_products: render_to_string(@products.includes([:image_attachments]))
